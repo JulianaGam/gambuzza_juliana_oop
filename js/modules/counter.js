@@ -13,24 +13,20 @@ export class Counter {
         this.button = document.createElement("button");
 
         // add buttons, decrement, reset
-        //this.decrement 
-        //this.reset 
+        this.decrementButton = document.createElement("button");
+        this.resetButton = document.createElement("button");
 
 
         // set button text 
         this.button.textContent = "Increment";
-
-        //this.decrement...
-
-        //this.reset...
+        this.decrementButton.textContent = "Decrement";
+        this.resetButton.textContent = "Reset";
 
         //Append display and button into the container 
         container.appendChild(this.display);
         container.appendChild(this.button);
-
-        //container.appendChild(this.decrement);
-        
-        //container.appendChild(this.reset);
+        container.appendChild(this.decrementButton);
+        container.appendChild(this.resetButton);
 
 
         //add Event listener 
@@ -38,8 +34,13 @@ export class Counter {
             this.increment();
         });
 
-        //add new event listeners for decrement and reset
+        this.decrementButton.addEventListener("click", () => {
+            this.decrement();
+        });
 
+        this.resetButton.addEventListener("click", () => {
+            this.reset();
+        });
 
         // when this first gets mounted update the display 
         this.update();
@@ -52,36 +53,35 @@ export class Counter {
         this.update();
     }
 
-    update(){
-        //set initial display content 
-        this.display.textContent = `count: ${this.count}`;
-        //pseudo code for decrement and reset update methods
-
-        //classList.toggle() this.count===0
-
-
-
-    }
-
-    // add decrement method
+     // add decrement method
     decrement(){
-        //if statement neeeded to prevent count from going below 0
-        if(this.count > 0){
-            this.count--;
-            this.update();
-        }
+    if(this.count > 0){
         this.count--;
         this.update();
     }
-    
-    // add reset method
-
-    // reset method should set count back to 0 and update the display
-    reset(){
-
-    this.count = 0;
-    this.update();      
 }
+
+ // add reset method
+ // reset method should set count back to 0 and update the display
+
+reset(){
+    this.count = 0;
+    console.log("Reset activated!!");
+    this.update();
+}
+
+    update(){
+        //set initial display content 
+        this.display.textContent = `count: ${this.count}`;
+
+        // toggle inactive class when count is 0
+        this.decrementButton.classList.toggle("inactive", this.count === 0);
+        this.resetButton.classList.toggle("inactive", this.count === 0);
+
+        this.decrementButton.disabled = this.count === 0;
+        this.resetButton.disabled = this.count === 0;
+    }
+
 
 
 // counter is super class 
