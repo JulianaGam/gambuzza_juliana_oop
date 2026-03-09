@@ -1,0 +1,22 @@
+.counter {
+    border: solid 1px #c5c5c5;
+    margin-top: 40px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(44, 44, 44, 0.2);
+    font-family: poppins, sans-serif;
+  }
+  
+  button {
+    margin-bottom: 20px;
+    margin-right: 20px;
+    border: none;
+    padding: 10px;
+    background-color: rgb(99, 30, 99);
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  .inactive{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
