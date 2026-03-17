@@ -2,21 +2,46 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1.0, width=device-width">
-    <title>OOP Counter</title>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7COpen+Sans" rel="stylesheet" type="text/css">
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP assignemnt</title>
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <script type="module" defer src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script type="module" src="js/main.js"></script>
 </head>
 
 <body>
+
+<header class="main-header">
     <div class="grid-con">
+        <img  src="images/counter-logo.svg" alt="Logo">
+        <nav class="main-nav col-span-full m-col-start-6 m-col-end-12 l-col-start-6 l-col-end-12">
+            <a href="#overview" aria-label="Go to overview">Overview</a>
+            <a href="#how-to-use" aria-label="Go to how to use">How To Use It</a>
+            <a href="#examples" aria-label="Go to examples">Examples</a>
+        </nav>
+    </div>
+</header>
+
+
+   <section id="examples">
+    <div class="overview-card grid-con">
+        <div class="col-span-full">
+            <h2 class="title">Examples</h2>
+            <p class="text">
+                The examples below show multiple working instances of the Counter and StepCounter classes. 
+                Each counter demonstrates a different starting value or step value.
+            </p>
+        </div>
+
         <div id="counter-container1" class="counter col-span-full m-col-span-6"></div>
         <div id="counter-container2" class="counter col-span-full m-col-span-6"></div>
-        <div id="counterCon" class="counter col-span-full m-col-span-6"></div>
-        <div id="counterCon2" class="counter col-span-full m-col-span-6"></div>
+        <div id="counter-container3" class="counter col-span-full m-col-span-6"></div>
+        <div id="counter-container4" class="counter col-span-full m-col-span-6"></div>
     </div>
+</section>
 </body>
 </html>
