@@ -10,12 +10,12 @@ export class Counter {
         const container = document.querySelector(this.selector);
 
         this.display = document.createElement("div");
+        this.display.classList.add("counter-display");
         this.button = document.createElement("button");
 
         // add buttons, decrement, reset
         this.decrementButton = document.createElement("button");
         this.resetButton = document.createElement("button");
-
 
         // set button text 
         this.button.textContent = "Increment";
@@ -27,7 +27,6 @@ export class Counter {
         container.appendChild(this.button);
         container.appendChild(this.decrementButton);
         container.appendChild(this.resetButton);
-
 
         //add Event listener 
         this.button.addEventListener("click", () => {
@@ -44,71 +43,79 @@ export class Counter {
 
         // when this first gets mounted update the display 
         this.update();
+        this.checkButtonStatus();
+    }
 
+    checkButtonStatus(){
+        if(this.count === 0){
+            this.decrementButton.classList.add("inactive");
+            this.resetButton.classList.add("inactive");
+            this.decrementButton.disabled = true;
+            this.resetButton.disabled = true;
+        } else {
+            this.decrementButton.classList.remove("inactive");
+            this.resetButton.classList.remove("inactive");
+            this.decrementButton.disabled = false;
+            this.resetButton.disabled = false;
+        }
     }
 
     //state methods
     increment(){
         this.count++;
         this.update();
+        this.checkButtonStatus();
     }
 
-     // add decrement method
+    // add decrement method
     decrement(){
-    if(this.count > 0){
-        this.count--;
-        this.update();
+        if(this.count > 0){
+            this.count--;
+            this.update();
+            this.checkButtonStatus();
+        }
     }
-}
 
- // add reset method
- // reset method should set count back to 0 and update the display
-
-reset(){
-    this.count = 0;
-    console.log("Reset activated!!");
-    this.update();
-}
+    // add reset method
+    reset(){
+        this.count = 0;
+        console.log("Reset activated!!");
+        this.update();
+        this.checkButtonStatus();
+    }
 
     update(){
         //set initial display content 
         this.display.textContent = `count: ${this.count}`;
-
-        // toggle inactive class when count is 0
-        this.decrementButton.classList.toggle("inactive", this.count === 0);
-        this.resetButton.classList.toggle("inactive", this.count === 0);
-
-        this.decrementButton.disabled = this.count === 0;
-        this.resetButton.disabled = this.count === 0;
     }
-
-
-
-// counter is super class 
-//stepCounter is sub class 
 
 }
 
-class StepCounter extends Counter {
+// counter is main class 
+//stepCounter is sub class 
+
+export class StepCounter extends Counter {
     constructor(selector, initialValue = 0, step = 1){
         super(selector, initialValue);
-        // add step property 
-        // this.stet=step
         this.step = step;
     }
 
-    //need to redefine the increment method to use the step property instead of just adding 1
     increment(){
-        this.count += this.step;
+        this.count = this.count + this.step;
         this.update();
+        this.checkButtonStatus();
     }
 
-     //need to redefine the decrement method to use the step property instead of just subtracting 1
-     decrement(){
+    decrement(){
         if(this.count > 0){
-            this.count -= this.step;
+            this.count = this.count - this.step;
+
+            if(this.count < 0){
+                this.count = 0;
+            }
+
             this.update();
+            this.checkButtonStatus();
         }
     }
 }
-
