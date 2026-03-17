@@ -26,9 +26,9 @@
     </div>
 </header>
 
-<main>
+    <main>
 
- <section id="overview" class="overview-section">
+         <section id="overview" class="overview-section">
             <div class="grid-con">
                 <h1 class="hidden">Counter Class Documentation</h1>
                 <h2 class="title col-span-full">Overview</h2>
@@ -54,6 +54,55 @@
             </div>
         </section>
 
+    <section id="how-to-use">
+    <div class="grid-con">
+        <h2 class="col-span-full title">How To Use It</h2>
+
+        <div class="overview-card col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6 how-to-use-card">
+            <h3 class="sub-title">Example HTML container markup</h3>
+            <p class="text">
+                Before creating a counter, you need an HTML container. This container serves as the location where the counter will be. 
+                The Counter class dynamically creates the display and buttons within this element.
+            </p>
+            <div class="code-block">
+                <code>
+                    &lt;div id="counter-container1"&gt;&lt;/div&gt;<br>
+                    &lt;div id="counter-container2"&gt;&lt;/div&gt;<br>
+                    &lt;div id="counter-container3"&gt;&lt;/div&gt;<br>
+                    &lt;div id="counter-container4"&gt;&lt;/div&gt;
+                </code>
+            </div>
+        </div>
+
+        <div class="overview-card col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6">
+            <h3 class="sub-title">Example instantiation code</h3>
+            <p class="text">
+               Once the HTML containers have been created, they can be initialized using JavaScript. Each instance of the <code>Counter</code> 
+               class requires a selector that points to the container element and an optional initial value. The <code>StepCounter</code> 
+               class allows you to specify a number to control how much the counter increases or decreases.
+            </p>
+            <div class="code-block">
+                <code>
+                    import { Counter, StepCounter } from './modules/counter.js';<br><br>
+
+                    const counter1 = new Counter("#counter-container1", 10);<br>
+                    const counter2 = new Counter("#counter-container2", 5);<br>
+                    const counter3 = new StepCounter("#counter-container3", 0, 3);<br>
+                    const counter4 = new StepCounter("#counter-container4", 0, 10);
+                </code>
+            </div>
+        </div>
+
+        <div class="overview-card col-span-full">
+            <h3 class="sub-title">Explanation of parameters</h3>
+            <p class="text">
+                The <code>selector</code> parameter selects the HTML container where the counter will be mounted.
+                The <code>initialValue</code> parameter sets the counter's initial value; if no value is specified, the default is 0.
+                In the <code>StepCounter</code> class, the <code>step</code>  parameter controls the increment or decrement of the value, and the default is 1.
+            </p>
+        </div>
+    </div>
+</section>
 
    <section id="examples">
     <div class="overview-card grid-con">
@@ -72,12 +121,19 @@
     </div>
 </section>
 
+    </main>
 
-</main>
-<footer>
-    
+   <footer class="main-footer">
+    <div class="grid-con">
+        <div class="col-span-full footer-content">
+            <p class="footer-text">Counter Component Demo Page</p>
+            <p class="footer-copy">Built with JavaScript, HTML, Sass, and OOP principles</p>
+            <p class="footer-copy-me">
+                2026 Copyright &copy; Juliana Gambuzza
+            </p>
+        </div>
+    </div>
 </footer>
-
 
 </body>
 </html>
