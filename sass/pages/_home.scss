@@ -1,0 +1,23 @@
+@use "../abstracts";
+
+
+.title {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: abstracts.$color-title;  
+    font-family:abstracts.$font-main;
+}
+
+.sub-title {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    color: abstracts.$color-title;
+    font-family:abstracts.$font-main;
+}
+
+.text {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: abstracts.$color-text;
+    font-family:abstracts.$font-main;
+}
