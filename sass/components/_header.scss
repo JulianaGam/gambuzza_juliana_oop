@@ -1,0 +1,27 @@
+@use "../abstracts";
+
+.main-header {
+    background-color:  rgb(47, 7, 66);
+    padding: 1.5rem 0;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    align-items: center;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #f9fafb;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    font-family: abstracts.$font-main;
+}
+
+.main-nav a:hover {
+    color: #b69dc4cf;
+}
